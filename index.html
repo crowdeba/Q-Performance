@@ -367,13 +367,135 @@ var CONFIG = {
   ],
 
   tapers: [
-    {start:"2026-12-08", end:"2026-12-10", label:"Taper: Holiday Classic"}
+    {start:"2026-12-03", end:"2026-12-10", label:"Taper: Holiday Classic"}
   ],
 
   // A "modified" entry that has a plan{} shows that exact reduced workout, with weight targets worked out
   // from the athlete's own logged weights. primerOn:true on a no-lift entry swaps in its primerPlan instead.
   liftOverrides: [
     {start:"2026-11-26", end:"2026-11-26", mode:"no-lift", label:"No Lift — Thanksgiving"},
+    // Holiday Classic taper (race Fri Dec 11): taper starts Thu Dec 3, lifts get lighter each time, last lift is Wed Dec 9, restart after the meet.
+    {start:"2026-12-03", end:"2026-12-03", mode:"modified", label:"Taper Lift — Holiday Classic",
+      plan:{
+        "chip": "Taper Lift",
+        "title": "Taper Lift",
+        "intro": "The taper starts this week, so today's lift is a little lighter: about three-quarters of the normal sets. Keep the weight close to normal (your targets are on each exercise), stop every set with 3 or more reps left, and move the bar fast and crisp. You should walk out feeling better than when you walked in.",
+        "dropped": [
+          "Hanging Knee Raise",
+          "Side Plank"
+        ],
+        "homeNote": "about three-quarters of the normal sets at near-normal weight. Open it that day to see your exact weights.",
+        "exercises": [
+          {
+            "name": "DB Step-Up",
+            "sets": 3,
+            "loadPct": 90
+          },
+          {
+            "name": "Assisted Pull-Ups",
+            "type": "pullup",
+            "sets": 3
+          },
+          {
+            "name": "Single-Arm DB Row",
+            "sets": 2,
+            "loadPct": 95
+          },
+          {
+            "name": "Back Extension",
+            "sets": 2,
+            "noTarget": true,
+            "hint": "Same as normal, or a little lighter."
+          },
+          {
+            "name": "Push-Up",
+            "sets": 2,
+            "noTarget": true,
+            "hint": "Same as normal, or a little lighter."
+          },
+          {
+            "name": "Hip Abductor Machine",
+            "sets": 2,
+            "noTarget": true,
+            "hint": "Same as normal."
+          }
+        ]
+      }},
+    {start:"2026-12-08", end:"2026-12-08", mode:"modified", label:"Taper Lift — Holiday Classic",
+      plan:{
+        "chip": "Taper Lift",
+        "title": "Taper Lift",
+        "intro": "Racing is getting close, so today's lift is lighter again: a little over half of the normal sets. Keep the weight close to normal (your targets are on each exercise), stop every set with 3 or more reps left, and move the bar fast and crisp. The goal is to feel sharp for racing, not worked.",
+        "dropped": [
+          "Hip Adductor Machine",
+          "Standing Calf Raise",
+          "Plank",
+          "Reverse Crunch"
+        ],
+        "homeNote": "a little over half of the normal sets at near-normal weight. Open it that day to see your exact weights.",
+        "exercises": [
+          {
+            "name": "Leg Press",
+            "sets": 3,
+            "loadPct": 85
+          },
+          {
+            "name": "Goblet Squat",
+            "sets": 3,
+            "loadPct": 85
+          },
+          {
+            "name": "Leg Curl",
+            "sets": 3,
+            "loadPct": 85
+          },
+          {
+            "name": "Hip Thrust",
+            "sets": 3,
+            "loadPct": 85
+          }
+        ]
+      }},
+    {start:"2026-12-15", end:"2026-12-15", mode:"modified", label:"Restart Lift — Holiday Classic",
+      plan:{
+        "chip": "Restart Lift",
+        "title": "Restart Lift",
+        "intro": "First lift back after racing. About 70% of the normal sets, so your body eases back in. Keep the weight close to normal (your targets are on each exercise), stop every set with 3 or more reps left, and move the bar fast and crisp. Next lift goes back to normal.",
+        "dropped": [
+          "Standing Calf Raise",
+          "Plank",
+          "Reverse Crunch"
+        ],
+        "homeNote": "about 70% of the normal sets, an easy restart after racing.",
+        "exercises": [
+          {
+            "name": "Leg Press",
+            "sets": 3,
+            "loadPct": 90
+          },
+          {
+            "name": "Goblet Squat",
+            "sets": 3,
+            "loadPct": 90
+          },
+          {
+            "name": "Leg Curl",
+            "sets": 3,
+            "loadPct": 90
+          },
+          {
+            "name": "Hip Thrust",
+            "sets": 3,
+            "loadPct": 90
+          },
+          {
+            "name": "Hip Adductor Machine",
+            "sets": 2,
+            "noTarget": true,
+            "hint": "Same as normal."
+          }
+        ]
+      }},
     {start:"2026-12-09", end:"2026-12-09", mode:"modified", label:"Meet-Week Lift — Holiday Classic",
       plan:{
         "chip": "Meet-Week Lift",
@@ -393,7 +515,7 @@ var CONFIG = {
       }},
     // The day before the meet: the default is NO LIFT. To offer the short primer instead, change primerOn to true.
     {start:"2026-12-10", end:"2026-12-10", mode:"no-lift", label:"No Lift — Holiday Classic",
-      primerOn:false,
+      primerOn:true,
       primerLabel:"Optional Primer — Holiday Classic",
       primerPlan:{
         "chip": "Primer",
